@@ -857,6 +857,20 @@ $(document).ready(function() {
     });
 });
 
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+        const navbarToggler = document.querySelector('.navbar-toggler');
+        const navbarCollapse = document.querySelector('#navbarScroll');
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (navbarToggler.classList.contains('collapsed') === false) {
+                    new bootstrap.Collapse(navbarCollapse).hide();
+                }
+            });
+        });
+    });
 </script>
 
 
