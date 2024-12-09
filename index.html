@@ -232,7 +232,7 @@
 <section id="promotions" class="py-5">
     <div class="container py-lg-5 py-md-4 py-2">
         <div class="title-content text-center mb-lg-3 mb-4">
-            <h6 class="title-subw3hny mb-1" style="color: green; font-weight: bold; font-size: 1.2rem;">Exclusive Deals</h6>
+            <h6 class="title-subw3hny mb-1" style="color: green; font-weight: bold; font-size: 1.2rem; padding-top: 32px;">Exclusive Deals</h6>
             <h3 class="title-w3l" style="color: red; font-size: 2.5rem; font-weight: 600;">Our Latest Promotions</h3>
         </div>
 
@@ -719,19 +719,58 @@
             });
         });
 
+        document.addEventListener('DOMContentLoaded', () => {
+    const navbarLinks = document.querySelectorAll('.navbar-nav .nav-link');
+    const navbarCollapse = document.querySelector('.navbar-collapse');
+
+    navbarLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            if (navbarCollapse.classList.contains('show')) {
+                const collapseInstance = new bootstrap.Collapse(navbarCollapse, { toggle: false });
+                collapseInstance.hide();
+            }
+        });
+    });
+});
+document.addEventListener('DOMContentLoaded', () => {
+    const navbarLinks = document.querySelectorAll('.navbar-nav .nav-link');
+    const navbarCollapse = document.querySelector('.navbar-collapse');
+
+    // Collapse menu on link click
+    navbarLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            if (navbarCollapse.classList.contains('show')) {
+                const collapseInstance = new bootstrap.Collapse(navbarCollapse, { toggle: false });
+                collapseInstance.hide();
+            }
+        });
+    });
+
+    // Collapse menu on manual scroll
+    let isScrolling = false;
+
+    window.addEventListener('scroll', () => {
+        if (navbarCollapse.classList.contains('show')) {
+            const collapseInstance = new bootstrap.Collapse(navbarCollapse, { toggle: false });
+            collapseInstance.hide();
+        }
+    });
+});
+
+
     </script>
     <!-- //MENU-JS -->
 
     <!-- disable body scroll which navbar is in active -->
-    <script>
+    <!--<script>
         $(function() {
             $('.navbar-toggler').click(function() {
                 $('body').toggleClass('noscroll');
             })
-        });
+        });-->
 
     </script>
-    <!-- //disable body scroll which navbar is in active -->
+
     <!-- //bootstrap -->
     <script src="assets/js/bootstrap.min.js"></script>
     <script>
