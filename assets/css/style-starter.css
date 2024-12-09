@@ -21840,17 +21840,3 @@ form.subscribe-wthree input:focus {
     object-fit: cover; /* Ensures the aspect ratio doesn't distort */
     border-radius: 8px; /* Keeps rounded corners consistent with other images */
 }
-
-
-
-
-.navbar-collapse.collapse {
-    display: none !important;
-}
-
-.navbar-collapse.show {
-    display: block !important;
-}
-.navbar {
-    z-index: 1030;
-}
