@@ -21840,3 +21840,28 @@ form.subscribe-wthree input:focus {
     object-fit: cover; /* Ensures the aspect ratio doesn't distort */
     border-radius: 8px; /* Keeps rounded corners consistent with other images */
 }
+
+
+
+.image-promotions {
+    width: 300px; /* Adjust to fit the parent container */
+    max-width: 500px; /* Maximum width for the image */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for a clean look */
+    object-fit: cover; /* Ensures the image covers the container nicely */
+    transition: transform 0.3s ease; /* Adds smooth transition for scaling effect */
+    size: 5px;
+}
+
+
+
+.image-promotions:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+}
+
+.ph{
+   text-align: center;
+   margin: 4%;
+   padding: 4%;
+}
