@@ -310,10 +310,92 @@
 
         <!-- First Image for the promotions section  -->
         <div class="ph">
-                    <img src="assets/images/delivery.jpeg" alt=" " class="image-promotions"/>
-             
-                        
-                        </div>
+            <div class="ph-slide">
+              <img src="assets/images/delivery.jpeg" alt="Promotional Image" class="ph-image" />
+            </div>
+            <div class="ph-slidevid">
+              <video src="assets/images/packaging video.mp4" class="ph-video" muted controls></video>
+            </div>
+            <div class="ph-slidevid">
+              <video src="assets/images/cartus agri new video to add.mp4" class="ph-video" muted controls></video>
+            </div>
+          </div>
+          
+          <style>
+            /* Unique styles for .ph container */
+            
+          </style>
+          <script>
+            const slides = document.querySelectorAll('.ph-slide, .ph-slidevid');
+            const videos = document.querySelectorAll('.ph-video');
+            let currentIndex = 0;
+            let isMuted = true;
+        
+            // Show current slide and hide others
+            function showSlide(index) {
+              slides.forEach((slide, i) => {
+                slide.style.transform = `translateX(${(i - index) * 100}%)`;
+              });
+            }
+        
+            // Play the current video
+            function playVideo(video) {
+              video.currentTime = 0;
+              video.play();
+            }
+        
+            // Toggle sound on click
+            function toggleSound(video) {
+              isMuted = !isMuted;
+              video.muted = isMuted;
+            }
+        
+            // Handle swipe functionality (using touch events)
+            let startX;
+            let endX;
+        
+            document.querySelector('.ph').addEventListener('touchstart', function(e) {
+              startX = e.changedTouches[0].screenX;
+            });
+        
+            document.querySelector('.ph').addEventListener('touchend', function(e) {
+              endX = e.changedTouches[0].screenX;
+              if (startX > endX) {
+                // Swipe Left (next slide)
+                currentIndex = (currentIndex + 1) % slides.length;
+              } else {
+                // Swipe Right (previous slide)
+                currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+              }
+              showSlide(currentIndex);
+            });
+        
+            // Initialize the slider and start with the first slide
+            function initializeSlider() {
+              showSlide(currentIndex);
+        
+              // Start playing the video of the first slide
+              const video = slides[currentIndex].querySelector('video');
+              if (video) {
+                playVideo(video);
+              }
+        
+              // Add click event to toggle sound for videos
+              slides.forEach(slide => {
+                slide.addEventListener('click', () => {
+                  const video = slide.querySelector('video');
+                  if (video) {
+                    toggleSound(video);
+                  }
+                });
+              });
+            }
+        
+            // Start the slider
+            initializeSlider();
+        
+          </script>
+          
                     </div>
                 </div>
             </a>

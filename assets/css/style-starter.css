@@ -21860,8 +21860,72 @@ form.subscribe-wthree input:focus {
     transform: scale(1.05); /* Slight zoom on hover */
 }
 
-.ph{
-   text-align: center;
-   margin: 4%;
-   padding: 4%;
-}
+.ph {
+    display: flex; /* Aligns items side by side */
+    justify-content: center; /* Centers items horizontally */
+    align-items: center; /* Centers items vertically */
+    gap: 15px; /* Space between slides */
+    padding: 10px; /* Optional: Add some padding around the container */
+    flex-wrap: wrap; /* Allows items to wrap on smaller screens */
+  }
+  
+  /* Styles for the individual slides */
+  .ph-slide, .ph-slidevid {
+    flex: 1; /* Equal space distribution */
+    max-width: 30%; /* Limit the width of each block */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Shadow for better visuals */
+    border-radius: 8px; /* Optional: Rounded corners */
+    overflow: hidden; /* Ensures content doesn't spill out */
+  }
+  
+  /* Styles for images in the .ph container */
+  .ph-image {
+    max-width: 100%; /* Ensures content fits the container */
+    height: 100%; /* Maintains aspect ratio */
+    border-radius: 12px; /* Optional: Rounded corners for media */
+  }
+  
+  /* Styles for videos in the .ph container */
+  .ph-video {
+    max-width: 100%; /* Ensures content fits the container */
+    width: 520px;
+    height: 393px; /* Maintains aspect ratio */
+    border-radius: 12px; /* Optional: Rounded corners for media */
+  }
+  
+  /* Media Queries for responsiveness */
+  @media (max-width: 1024px) {
+    .ph-slide, .ph-slidevid {
+      max-width: 45%; /* Decrease the width on medium screens */
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .ph {
+      flex-direction: column; /* Stack slides vertically on smaller screens */
+      gap: 10px; /* Reduce the gap between slides */
+    }
+  
+    .ph-slide, .ph-slidevid {
+      max-width: 80%; /* Increase width for better fit on small screens */
+    }
+  
+    .ph-video {
+      width: 100%; /* Make videos take up full width on small screens */
+      height: auto; /* Adjust height for aspect ratio */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .ph-slide, .ph-slidevid {
+      max-width: 100%; /* Full width for each item on extra small screens */
+    }
+  
+    .ph-video {
+      width: 100%; /* Videos should also take full width */
+      height: auto; /* Ensure correct aspect ratio */
+    }
+  }
