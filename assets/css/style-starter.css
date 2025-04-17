@@ -21964,7 +21964,7 @@ form.subscribe-wthree input:focus {
     }
 }
 
-/* Bunny Animation */
+/* Bunny Animation 
 .bunny {
     position: absolute;
     bottom: 0;
@@ -21974,7 +21974,7 @@ form.subscribe-wthree input:focus {
     background: url('https://i.imgur.com/6jNwXKx.png') no-repeat center center;
     background-size: contain;
     animation: hopBunny 10s linear infinite;
-}
+}*/
 
 @keyframes hopBunny {
     0% { left: -100px; bottom: 0; }
