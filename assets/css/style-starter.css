@@ -21971,7 +21971,7 @@ form.subscribe-wthree input:focus {
     left: -100px;
     width: 60px;
     height: 60px;
-    background: url('https://i.imgur.com/6jNwXKx.png') no-repeat center center;
+    background-image: url ('\assets\images\bunny.png') no-repeat center center;
     background-size: contain;
     animation: hopBunny 10s linear infinite;
 }*/
