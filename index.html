@@ -6,7 +6,8 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
     <!-- SEO Meta Tags -->
     <meta name="description" content="Cartus Agri - Our urban-bred chickens are raised in the heart of the city, thriving in unique surroundings for healthier, happier birds.">
     <meta name="keywords" content="Cartus, Cartus Agriculture, Cartus Agri, Cartus Agri Ltd., Cartus Agri Ltd, Farming, Chickens, Healthy chickens, Poultry, Sustainable farming, Agriculture, Bred poultry, Raised chickens, Organic chicken farming, Local chicken farm, Farming practices, Chicken coop, Chicken care, Ethical poultry farming, Egg production, Chicken feed, Chicken health, Sustainable farming practices, Based chicken farm, Chicken lifestyle, Chicken husbandry, Chicken welfare, Farming techniques, Chicken breeding, Chicken meat, Grown chickens, Chicken eggs, Organic farming, Chicken housing, Poultry health, Farm fresh eggs, Chicken nutrition, Livestock farming, Chicken raising, Farm chickens, Poultry care, Chicken produce, Farming benefits, Chicken sustainability, Poultry farm, Chicken market, Farm management, Agriculture techniques, Chicken business, Chicken farming guide">
@@ -236,7 +237,12 @@
     <!--//w3-grids-->
 
 <!-- Snowfall Animation -->
-<div class="snow" id="snow-container"></div>
+<!-- Easter Animation Container -->
+<div id="easter-animation">
+    <div class="bunny"></div>
+</div>
+
+
 <!-- Promotions Section -->
 <section id="promotions" class="py-5">
     <div class="container py-lg-5 py-md-4 py-2">
@@ -247,13 +253,13 @@
 
         <div class="row justify-content-center">
             <!-- Card 1 -->
-            <div class="col-lg-3 col-md-6 mt-4">
+            <div class="col-lg-6 col-md-6 mt-4">
                 <div class="card text-center">
-                    <a href="assets/images/christmas promotion packages.jpg" class="image-popup">
-                        <img src="assets/images/lastpromo.jpeg" alt="Medofo Pa Promotion" class="card-img-top img-fluid">
+                    <a href="assets/images/cartus easter promo.jpg" class="image-popup">
+                        <img src="assets/images/cartus easter promo.jpg" alt="Easter Promotion" class="card-img-top img-fluid">
                     </a>
-                    <div class="card-body">
-                        <h5 class="card-title" style="font-family: 'Georgia', serif; font-weight: bold; font-size: 1.4rem;">MEDOFO PA</h5>
+                    <!--<div class="card-body">
+                        <h5 class="card-title" style="font-family: 'Georgia', serif; font-weight: bold; font-size: 1.4rem;">EASTER PROMO</h5>
                         <p class="card-text" style="font-family: 'Arial', sans-serif; font-size: 1rem; line-height: 1.5;">
                             1 Broiler<br>
                             1 Layer<br>
@@ -261,11 +267,11 @@
                             Cartus Special Chicken Spices
                         </p>
                         <p style="font-family: 'Verdana', sans-serif; font-weight: bold; font-size: 1.1rem; color: #333; margin-top: 10px;">Price: 350 Cedis</p>
-                    </div>
+                    </div>-->
                 </div>
             </div>
 
-            <!-- Card 2 -->
+            <!-- Card 2 
             <div class="col-lg-3 col-md-6 mt-4">
                 <div class="card text-center">
                     <a href="assets/images/christmas promotion packages.jpg" class="image-popup">
@@ -284,7 +290,7 @@
                 </div>
             </div>
 
-            <!-- Card 3 -->
+             Card 3 
             <div class="col-lg-3 col-md-6 mt-4">
                 <div class="card text-center">
                     <a href="assets/images/christmas promotion packages.jpg" class="image-popup">
@@ -303,6 +309,7 @@
                 </div>
             </div>
         </div>
+    -->
         <!-- Christmas Theme Order Now Button -->
         <p class="text-center mt-4">
             <a href="#order" class="order-now-btn" style="font-family: 'Courier New', monospace; font-size: 1.5rem; font-weight: bold; color: white; background-color: red; padding: 10px 20px; border-radius: 5px; text-decoration: none;">Order Now!!!</a>
@@ -313,12 +320,7 @@
             <div class="ph-slide">
               <img src="assets/images/delivery.jpeg" alt="Promotional Image" class="ph-image" />
             </div>
-            <div class="ph-slidevid">
-              <video src="assets/images/packaging video.mp4" class="ph-video" muted controls></video>
-            </div>
-            <div class="ph-slidevid">
-              <video src="assets/images/cartus agri new video to add.mp4" class="ph-video" muted controls></video>
-            </div>
+            
           </div>
           
           <style>
@@ -1011,6 +1013,34 @@ $(document).ready(function() {
     });
 });
 
+
+  // Create floating Easter eggs
+  const eggCount = 15;
+  for (let i = 0; i < eggCount; i++) {
+      const egg = document.createElement('div');
+      egg.classList.add('easter-egg');
+      egg.style.left = Math.random() * 100 + 'vw';
+      egg.style.animationDuration = (8 + Math.random() * 4) + 's';
+      egg.style.background = `radial-gradient(circle at 50% 50%, ${randomPastel()}, ${randomPastel()})`;
+      document.getElementById('easter-animation').appendChild(egg);
+  }
+
+  function randomPastel() {
+      const hue = Math.floor(Math.random() * 360);
+      return `hsl(${hue}, 70%, 85%)`;
+  }
+  
+  window.addEventListener('load', () => {
+    const popup = document.getElementById('easter-popup');
+    popup.style.opacity = '1';
+
+    setTimeout(() => {
+      popup.style.opacity = '0';
+    }, 2000); // visible for 1 second
+  });
+
+
+  
 </script>
 
 
@@ -1029,7 +1059,33 @@ $(document).ready(function() {
 
 
   </div>
-  
+  <div id="easter-popup" style="
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 90vw;
+  background: linear-gradient(135deg, #e2c9c9, #caa1a1);
+  border: 1px solid #e0c36e;
+  padding: 1.5rem 2.5rem;
+  font-size: 1.25rem;
+  font-family: 'Poppins', sans-serif;
+  color: #4a4a4a;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  z-index: 9999;
+  opacity: 0;
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  text-align: center;
+  pointer-events: none;
+">
+  <strong style="color: #b73f2f;">Happy Easter</strong><br style="color: antiquewhite;">
+  From everyone at <span style="color: #ffffff;">Cartus Agri Ltd.</span>
+</div>
+
+
+
+
 </body>
 
 </html>
