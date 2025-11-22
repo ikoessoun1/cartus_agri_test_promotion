@@ -21860,71 +21860,157 @@ form.subscribe-wthree input:focus {
     transform: scale(1.05); /* Slight zoom on hover */
 }
 
-.ph{
-   text-align: center;
-   margin: 4%;
-   padding: 4%;
+.ph {
+    display: flex; /* Aligns items side by side */
+    justify-content: center; /* Centers items horizontally */
+    align-items: center; /* Centers items vertically */
+    gap: 15px; /* Space between slides */
+    padding: 10px; /* Optional: Add some padding around the container */
+    flex-wrap: wrap; /* Allows items to wrap on smaller screens */
+  }
+  
+  /* Styles for the individual slides */
+  .ph-slide, .ph-slidevid {
+    flex: 1; /* Equal space distribution */
+    max-width: 30%; /* Limit the width of each block */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Shadow for better visuals */
+    border-radius: 8px; /* Optional: Rounded corners */
+    overflow: hidden; /* Ensures content doesn't spill out */
+  }
+  
+  /* Styles for images in the .ph container */
+  .ph-image {
+    max-width: 100%; /* Ensures content fits the container */
+    height: 100%; /* Maintains aspect ratio */
+    border-radius: 12px; /* Optional: Rounded corners for media */
+  }
+  
+  /* Styles for videos in the .ph container */
+  .ph-video {
+    max-width: 100%; /* Ensures content fits the container */
+    width: 520px;
+    height: 393px; /* Maintains aspect ratio */
+    border-radius: 12px; /* Optional: Rounded corners for media */
+  }
+  
+  /* Media Queries for responsiveness */
+  @media (max-width: 1024px) {
+    .ph-slide, .ph-slidevid {
+      max-width: 45%; /* Decrease the width on medium screens */
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .ph {
+      flex-direction: column; /* Stack slides vertically on smaller screens */
+      gap: 10px; /* Reduce the gap between slides */
+    }
+  
+    .ph-slide, .ph-slidevid {
+      max-width: 80%; /* Increase width for better fit on small screens */
+    }
+  
+    .ph-video {
+      width: 100%; /* Make videos take up full width on small screens */
+      height: auto; /* Adjust height for aspect ratio */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .ph-slide, .ph-slidevid {
+      max-width: 100%; /* Full width for each item on extra small screens */
+    }
+  
+    .ph-video {
+      width: 100%; /* Videos should also take full width */
+      height: auto; /* Ensure correct aspect ratio */
+    }
+  }
+
+
+  #easter-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 1000;
 }
 
-/* From Uiverse.io by ilkhoeri */ 
-.wrapper {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-  }
-  
-  .inner {
-    --w: 100px;
-    --h: 150px;
-    --translateZ: calc((var(--w) + var(--h)) + 0px);
-    --rotateX: -15deg;
-    --perspective: 1000px;
+/* Floating Easter Eggs */
+.easter-egg {
     position: absolute;
-    width: var(--w);
-    height: var(--h);
-    top: 25%;
-    left: calc(50% - (var(--w) / 2) - 2.5px);
+    width: 40px;
+    height: 55px;
+    background: radial-gradient(circle at 50% 50%, #ffdfba, #ffa07a);
+    border-radius: 50% 50% 45% 45%;
+    opacity: 0.9;
+    animation: floatEggs 12s linear infinite;
+}
+
+@keyframes floatEggs {
+    0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Bunny Animation 
+.bunny {
+    position: absolute;
+    bottom: 0;
+    left: -100px;
+    width: 60px;
+    height: 60px;
+    background-image: url ('\assets\images\bunny.png') no-repeat center center;
+    background-size: contain;
+    animation: hopBunny 10s linear infinite;
+}*/
+
+@keyframes hopBunny {
+    0% { left: -100px; bottom: 0; }
+    10% { bottom: 30px; }
+    20% { left: 10%; bottom: 0; }
+    30% { bottom: 30px; }
+    40% { left: 30%; bottom: 0; }
+    50% { bottom: 30px; }
+    60% { left: 50%; bottom: 0; }
+    70% { bottom: 30px; }
+    80% { left: 70%; bottom: 0; }
+    90% { bottom: 30px; }
+    100% { left: 100%; bottom: 0; }
+}
+
+.easter-egg {
+    position: absolute;
+    width: 40px;
+    height: 55px;
+    border-radius: 50% 50% 45% 45%;
+    background-image: 
+        repeating-linear-gradient(
+            to bottom,
+            #ff69b4 0,
+            #ff69b4 12px,
+            #87cefa 12px,
+            #87cefa 24px,
+            #ffff66 24px,
+            #ffff66 36px
+        );
+    background-size: 100% 100%;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+    animation: floatEggs 10s linear infinite;
+    opacity: 0.95;
     z-index: 2;
-    transform-style: preserve-3d;
-    transform: perspective(var(--perspective));
-    animation: rotating 20s linear infinite; /* */
-  }
-  @keyframes rotating {
-    from {
-      transform: perspective(var(--perspective)) rotateX(var(--rotateX))
-        rotateY(0);
-    }
-    to {
-      transform: perspective(var(--perspective)) rotateX(var(--rotateX))
-        rotateY(1turn);
-    }
-  }
-  
-  .carde {
-    position: absolute;
-    border: 2px solid rgba(var(--color-card));
-    border-radius: 12px;
-    overflow: hidden;
-    inset: 0;
-    transform: rotateY(calc((360deg / var(--quantity)) * var(--index)))
-      translateZ(var(--translateZ));
-  }
-  
-  .imge {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    background: #0000
-      radial-gradient(
-        circle,
-        rgba(var(--color-card), 0.2) 0%,
-        rgba(var(--color-card), 0.6) 80%,
-        rgba(var(--color-card), 0.9) 100%
-      );
-  }
-  
+}
+
+
+
