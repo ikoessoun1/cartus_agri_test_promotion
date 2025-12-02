@@ -323,8 +323,9 @@
         </div>
         <!-- Christmas Theme Order Now Button -->
         <p class="text-center mt-4">
-            <a href="#order" class="order-now-btn" style="font-family: 'Courier New', monospace; font-size: 1.5rem; font-weight: bold; color: white; background-color: red; padding: 10px 20px; border-radius: 5px; text-decoration: none;">Order Now!!!</a>
+            <a href="tel: *899*22#" class="order-now-btn" style="font-family: 'Courier New', monospace; font-size: 1.5rem; font-weight: bold; color: white; background-color: red; padding: 10px 20px; border-radius: 5px; text-decoration: none;">Order Now!!!</a>
         </p>
+        
 
         
         
@@ -704,13 +705,18 @@
     </footer>
 
     <div class="position-fixed bottom-0 start-50 translate-middle-x w-70 d-flex justify-content-center mb-3 bg-dark bg-opacity-100 bg-white border rounded-3 shadow p-2 w-70 " style="max-width: 500px; z-index: 1050;">
-        <audio id="player" controls class="w-70">
+        <audio id="player" controls autoplay class="w-70">
             <source src="assets/2025/CARTUS AGRI ENG 1 MIX.mp3" type="audio/mpeg">
         </audio>
     </div>
 
 
     <script>
+
+        const player = document.getElementById('player');
+        player.volume = 0.05; // 30% volume
+
+
         window.addEventListener('DOMContentLoaded', () => {
             const audio = document.getElementById('autoAudio');
             audio.play().catch(() => {
@@ -943,26 +949,26 @@ $(document).ready(function() {
         }
     });
 
-    // Trigger popup for Contact Options
-    $('.order-now-btn').magnificPopup({
-        items: {
-            src: '#contact-popup',
-            type: 'inline'
-        },
-        closeBtnInside: true,       // Enables the close button
-        closeOnBgClick: true,       // Clicking the background overlay closes the popup
-        midClick: false,            // Only open on button clicks
-        removalDelay: 200,          // Adds smooth animations
-        mainClass: 'mfp-fade'       // Optional fade-in/out effect
-    });
-});
+//     // Trigger popup for Contact Options
+//     $('.order-now-btn').magnificPopup({
+//         items: {
+//             src: '#contact-popup',
+//             type: 'inline'
+//         },
+//         closeBtnInside: true,       // Enables the close button
+//         closeOnBgClick: true,       // Clicking the background overlay closes the popup
+//         midClick: false,            // Only open on button clicks
+//         removalDelay: 200,          // Adds smooth animations
+//         mainClass: 'mfp-fade'       // Optional fade-in/out effect
+//     });
+ });
 
 </script>
 
 
 <!-- Contact Options Popup -->
 <div id="contact-popup" class="mfp-hide" style="position: relative; z-index: 1050;">
-    <div style="max-width: 400px; margin: auto; padding: 20px; border-radius: 10px; background: #f8f9fa; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); text-align: center; font-family: 'Arial', sans-serif; position: relative;">
+    <!-- <div style="max-width: 400px; margin: auto; padding: 20px; border-radius: 10px; background: #f8f9fa; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); text-align: center; font-family: 'Arial', sans-serif; position: relative;">
         <h2 style="font-size: 1.8rem; color: #333; margin-bottom: 15px; font-weight: bold;">Reach Out to Us Directly</h2>
         <p style="font-size: 1rem; color: #555; margin-bottom: 20px;">Choose your preferred contact option:</p>
         <div class="contact-options">
@@ -970,7 +976,7 @@ $(document).ready(function() {
             <a href="tel:0558376127" class="contact-btn" style="display: block; font-size: 1.2rem; color: white; background: #28a745; padding: 10px 15px; margin-bottom: 10px; border-radius: 5px; text-decoration: none; font-weight: bold;">+233558376127</a>
             <a href="tel:0241674268" class="contact-btn" style="display: block; font-size: 1.2rem; color: white; background: #dc3545; padding: 10px 15px; border-radius: 5px; text-decoration: none; font-weight: bold;">+233241674268</a>
         </div>
-    </div>
+    </div> -->
 </div>
 
 
